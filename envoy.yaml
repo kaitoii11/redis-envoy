@@ -29,7 +29,7 @@ static_resources:
         - endpoint:
             address:
               socket_address:
-                address: ${SERVICE_NAME}
+                address: redis-cluster-leader-headless
                 port_value: 6379
 admin:
   address:

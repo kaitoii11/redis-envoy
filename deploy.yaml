@@ -15,13 +15,18 @@ spec:
         app: redis-envoy
     spec:
       containers:
-      - image: kaitoii11/redis-envoy:v1@sha256:30b0be8bf60c2821b9f10a6fd416a1e68e3c295439980581cae9856f6c088ce5
+      - image: envoyproxy/envoy:v1.22.2
         name: redis-envoy
-        env:
-        - name: SERVICE_NAME
-          value: "redis-cluster-leader-headless"
+        command: ["/bin/sh", "-c", "/usr/local/bin/envoy -c /etc/config/envoy.yaml"]
         ports:
           - containerPort: 6379
             name: envoy
           - containerPort: 9901
             name: admin
+        volumeMounts:
+        - name: envoy-conf
+          mountPath: /etc/config
+      volumes:
+        - name: envoy-conf
+          configMap:
+            name: envoy-conf
