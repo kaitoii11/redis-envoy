@@ -17,8 +17,6 @@ spec:
       containers:
       - image: kaitoii11/redis-envoy:v1@sha256:d91b18f2889ef1f56d35b65ce6ad093882d0baffc7a72e775a10cf6de5b2ccb3
         name: redis-envoy
-        command: ["/usr/local/bin/envoy"]
-        args: ["-c", "/etc/envoy.yaml"]
         env:
         - name: SERVICE_NAME
           value: "redis-cluster-leader-headless"
