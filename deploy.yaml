@@ -15,7 +15,7 @@ spec:
         app: redis-envoy
     spec:
       containers:
-      - image: kaitoii11/redis-envoy:v1@sha256:d91b18f2889ef1f56d35b65ce6ad093882d0baffc7a72e775a10cf6de5b2ccb3
+      - image: kaitoii11/redis-envoy:v1@sha256:30b0be8bf60c2821b9f10a6fd416a1e68e3c295439980581cae9856f6c088ce5
         name: redis-envoy
         env:
         - name: SERVICE_NAME
